@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antojitos Ana | Cocina Mexicana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/525632087016?text=Hola%20Señora%20Ana,%20me%20gustaría%20hacer%20un%20pedido" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-pepper-hot"></i>
+                <h1>Antojitos Anita</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#pedidos">Cómo Ordenar</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2>Los auténticos sabores de México en cada bocado</h2>
+            <p>Gorditas, quesadillas, huaraches y sopes preparados con la receta tradicional de la abuela. Hechos con ingredientes frescos.</p>
+            <a href="#menu" class="btn">Ver Menú Completo</a>
+            <a href="#pedidos" class="btn" style="margin-left: 15px; background-color: var(--verde);">Ordenar Ahora</a>
+        </div>
+    </section>
+    
+    <!-- Menú -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Menú</h2>
+            </div>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">Todo</button>
+                <button class="category-btn" data-category="gorditas">Gorditas</button>
+                <button class="category-btn" data-category="quesadillas">Quesadillas</button>
+                <button class="category-btn" data-category="huaraches">Huaraches</button>
+                <button class="category-btn" data-category="otros">Otros</button>
+            </div>
+            
+            <div class="menu-grid" id="menuGrid">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Nosotros -->
+    <section id="nosotros" style="background-color: var(--beige);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Historia</h2>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="images/historia.png" alt="Puesto de Ana">
+                </div>
+                <div class="about-text">
+                    <h2>Nuestra Historia</h2>
+                    <p>Todo comenzó hace más de 20 años en la puerta de nuestro hogar. Con un pequeño comal y el sazón único de sus manos, <strong>Doña Ana</strong> decidió compartir con los vecinos los antojitos que siempre fueron el orgullo de su familia.</p>
+                    <p>Lo que empezó como un puesto fuera de su casa, se convirtió rápidamente en una tradición del barrio. A pesar de los años, la esencia no ha cambiado: el aroma de las salsas recién hechas y el sonido de las tortillas palmeadas siguen recibiendo a todo aquel que busca el auténtico sabor de México.</p>
+                    <p>Hoy, Doña Ana sigue al frente de la cocina, asegurándose de que cada pedido lleve el mismo cariño y calidad que el primer día. Nuestra misión es simple: que al probar nuestros antojos, te sientas tan bienvenido como si estuvieras sentado en el comedor de nuestra propia casa.</p>
+                    <a href="#ubicacion" class="btn" style="margin-top: 20px;">Visítanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ubicación -->
+    <section id="ubicacion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ubicación y Horarios</h2>
+            </div>
+            
+            <div id="map"></div>
+            
+            <div class="location-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Dirección</h3>
+                    <p>Blvd. del Lago 154, Fraccionamiento Las Americas, 55883 Tepexpan, Méx.</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horarios</h3>
+                    <p>Jueves: 9:00 am - 5:00 pm<br>Sábados: 9:00 am - 4:00 pm<br>Domingos: 9:00 am - 4:00 pm</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:+525549440632" style="color: var(--negro); text-decoration: none;">+52 55 49 44 06 32</a></p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Llama para pedidos, reservaciones o información</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cómo Ordenar -->
+    <section id="pedidos" style="background-color: var(--beige);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cómo Ordenar</h2>
+            </div>
+            <div class="order-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Elige tu antojo</h3>
+                    <p>Revisa nuestro menú y selecciona tus gorditas, quesadillas, huaraches o sopes favoritos. Elige tus guisos preferidos.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Realiza tu pedido</h3>
+                    <p>Llámanos directamente o escríbenos por WhatsApp para confirmar tu pedido, dirección y forma de pago.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Recibe tu comida</h3>
+                    <p>Preparamos tu pedido con ingredientes frescos y te lo llevamos a domicilio. También puedes recoger en nuestro local.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <h3 style="font-size: 2rem; color: var(--rojo-mexicano); margin-bottom: 20px;">También puedes ordenar por:</h3>
+                <div class="delivery-platforms">
+                    
+                <a href="https://wa.me/525632087016?text=Hola%20Señora%20Ana,%20me%20gustaría%20hacer%20un%20pedido" class="btn" style="margin-top: 30px; background-color: #25D366;">
+                    <i class="fab fa-whatsapp"></i> Ordenar por WhatsApp
+                </a>
+                <a href="tel:+525549440632" class="btn"  style="margin-top: 30px; background-color: #be3f04;">
+                    Ordenar por Teléfono
+                    <i class="fas fa-phone-alt" style="color: #000;"></i>
+                </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galería -->
+    <section id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Galería</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gordita-chicharron.jpg" alt="Gorditas en el comal">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/quesadilla-flor.jpg" alt="Quesadillas con queso">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/huarache-chorizo.jpg" alt="Huaraches con carne">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/sope-pollo.jpg" alt="Sopes con crema">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Antojitos Ana</h3>
+                    <p>Siguenos en nuestras redes sociales </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#menu">Menú</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                        <li><a href="#pedidos">Cómo Ordenar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Blvd. del Lago 154, Fraccionamiento Las Americas, 55883 Tepexpan, Méx. </p>
+                    <p><i class="fas fa-phone-alt"></i> +52 55 49 44 06 32</p>
+                    <p><i class="fas fa-envelope"></i> contreras.isaac.jc19@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Jueves: 9am-5pm | Sábados: 9am-4pm | Dom: 9am-4pm</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Antojitos Ana. Todos los derechos reservados. </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
